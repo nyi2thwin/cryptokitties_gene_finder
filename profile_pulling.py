@@ -2,6 +2,21 @@ import requests
 import time
 import traceback
 
+def child_gene(kitty_pair, gene=['fancy']):
+    end_point = 'http://www.kitty.services/api/gene'
+    result = requests.post(end_point, json=kitty_pair)
+    if result.status_code == requests.codes.ok:
+        gene_result = result.json()['results']
+        check_gene = filter(lambda x: x, map(lambda x: [x[0], (('%.2f' % (x[1] * 100)))] if x[0] in gene else None, gene_result))
+        if check_gene:
+            for genes in check_gene:
+                print 'Gene %s: %s' % (genes[0], genes[1])
+                print '=' * 20
+        else:
+            print 'Hopeless couple!'
+            print '*' * 20
+    return False
+
 def get_array_pair_by_address(ether_address):
     remaining = True
     offset = 0
@@ -25,4 +40,8 @@ def get_array_pair_by_address(ether_address):
     print(len(kitties_pair_list))
     return kitties_pair_list
 
-get_array_pair_by_address("0x4ce15b37851a4448a28899062906a02e51dee267")
+kouples = get_array_pair_by_address("0x4ce15b37851a4448a28899062906a02e51dee267")
+kouples_babe_gene = ['fancy']
+for kouples_genes in kouples:
+    time.sleep(1)
+    child_gene(kouples_genes, kouples_babe_gene)
