@@ -34,3 +34,6 @@ Sire 225090: Matron 204669
 Gene jaguar: 31.31%
 
 Gene fancy: 4.04%
+
+
+All thanks to http://www.kitty.services/
