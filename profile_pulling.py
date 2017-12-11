@@ -13,7 +13,7 @@ def child_gene(kitty_pair, gene=['fancy']):
             if counter == 0:
                 print('Sire %s: Matron %s' % (kitty_pair[0],kitty_pair[1]))
             counter += 1
-            print('Gene %s: %s' % (genes[0], genes[1]))
+            print('Gene %s: %s%s' % (genes[0], genes[1],'%'))
         print('=' * 20)
         
     
@@ -39,13 +39,13 @@ def get_array_pair_by_address(ether_address):
             if each != inner:
                 kitties_pair_list.append([each,inner])
 
-    print(len(kitties_pair_list))
+    print(len(kitties_pair_list),'unique pair found')
     return kitties_pair_list
 
 #ether(cryptokitties) addresss here
 address = "0x4ce15b37851a4448a28899062906a02e51dee267"
 kouples = get_array_pair_by_address(address)
-kouples_babe_gene = ['fancy','jaguar']
+kouples_babe_gene = ['fancy','jaguar','violet']
 for kouples_genes in kouples:
     time.sleep(1)
     child_gene(kouples_genes, kouples_babe_gene)
